@@ -1,0 +1,8 @@
+{
+    "FC_URL": "https://fca.int-cw.dev-franceconnect.fr",
+    "FD_URL": "https://fdp.dev.dev-franceconnect.fr",
+    "FS_URL": "http://localhost:8080/",
+  
+    "AUTHORIZATION_FC_PATH": "/api/agentConnect/authorize",
+    "TOKEN_FC_PATH": "/api/agentConnect/callToken",
+  }
