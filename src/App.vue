@@ -12,29 +12,12 @@
     </header>
     <section>
       <h1>Bienvenue sur Agent Connect</h1>
-      <div>Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
-      <!--<router-view></router-view>-->
-      <div>Vous pouvez tester la connexion à un Fournisseur d'Identité en cliquant sur le bouton FranceConnect</div>
-      <div>
-        <button v-on:click="login" >AgentConnect</button>
-      </div>
+      <div class="content">Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
+      <router-view></router-view>
     </section>
-    <footer class="text-right">Agent Connect - Application de démonstration</footer>
+    <footer class="text-right">@ AgentConnect 2019 - Application de démonstration</footer>
   </div>
 </template>
-
-<script>
-import { HTTP } from "@/https-constant.js";
-
-export default {
-  name: "App",
-  methods: {
-    login: function() {
-
-    } 
-  }
-};
-</script>
 
 <style lang="scss">
 #app {
