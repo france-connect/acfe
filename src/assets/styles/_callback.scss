@@ -1,0 +1,26 @@
+@import './color.scss';
+
+#callback {
+    #callback-content {
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .scopeprint {
+            padding: 1rem;
+        }
+
+        .prettyprint {
+            background-color: $darkest-blue;
+            box-shadow: 2px 2px 10px $darkest-blue;
+            padding: 1rem;
+            color: $white;
+
+            div {
+                > .str {
+                    color: $green;
+                }
+            }
+        }
+    }
+}

@@ -1,1 +1,17 @@
-{}
+{
+  "ACBE_URL": "https://acbe.int-cw.dev-franceconnect.fr",
+  "FS_URL": "http://localhost:8080",
+
+  "AUTHORIZATION_ACBE_URI": "/api/agentConnect/authorize",
+  "TOKEN_ACBE_URI": "/api/agentConnect/callToken",
+  "DISCOVERY_ACBE_URI": "/api/discovery",
+
+  "TOKEN_ACBE": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNTQ4MDYxMzM1fQ.4PYZn_HjslhFPN4cnS9L4lD4BSUtAbraneuH1a7zddg",
+
+
+  "CALLBACK_FS_PATH": "/callback",
+  "LOGOUT_FS_PATH": "/logged-out",
+
+  "STATE": "agentconnect",
+  "NONCE": "customNonceAC"
+}

@@ -1,118 +1,53 @@
 <template>
   <div id="callback" class="content">
-    <p>Identité pivot retourné :</p>
-    <table class="table-dark table-striped text-center">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Champs</th>
-          <th>Valeurs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td class="mandatory">given_name</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td class="mandatory">usual_name</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td class="mandatory">sub</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td class="mandatory">email</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td class="mandatory">siren</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">6</th>
-          <td class="mandatory">organizational_unit</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">7</th>
-          <td class="mandatory">identity_provider</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">8</th>
-          <td>family_name</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">9</th>
-          <td>gender</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">10</th>
-          <td>birthdate</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">11</th>
-          <td>birthcountry</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">12</th>
-          <td>birthplace</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">13</th>
-          <td>belonging_population</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">14</th>
-          <td>siret</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">15</th>
-          <td>position </td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">16</th>
-          <td>job</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">17</th>
-          <td>phone</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">18</th>
-          <td>address</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <component :is="currentCallbackComponent" :errorUserInfo="error"></component>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from "@/components/HelloWorld.vue";
+import CallbackContent from "@/components/callback/Content";
+import CallbackLoading from "@/components/callback/Loading";
+import CallbackError from "@/components/callback/Error";
+
+import { USER_INFO_AC } from "@/store/actions/user";
+import { mapGetters } from "vuex";
 
 export default {
   name: "callback",
-  mounted() {
-    
+  data() {
+    return {
+      callbackComponent: "CallbackLoading",
+      userInfo: null,
+      error: null
+    };
   },
+  components: {
+    CallbackContent,
+    CallbackLoading,
+    CallbackError
+  },
+  computed: {
+    currentCallbackComponent: function() {
+      return this.callbackComponent;
+    },
+    ...mapGetters(["authStatus"])
+  },
+  mounted() {
+    if (this.authStatus === "success") {
+      this.callbackComponent = "CallbackContent";
+    } else {
+      this.$store
+        .dispatch(USER_INFO_AC, this.$route.query.code)
+        .then(response => {
+          this.userInfo = response;
+          this.callbackComponent = "CallbackContent";
+        })
+        .catch(error => {
+          console.log("catch error callback", error);
+          this.error = "Sorry Bro il y a un probleme";
+          this.callbackComponent = "CallbackError";
+        });
+    }
+  }
 };
 </script>

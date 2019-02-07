@@ -1,23 +1,31 @@
 <template>
   <div class="wrapper">
-    <header>
-      <nav>
-        <div class="navigation">
-          <router-link :to="{ name: 'agentConnect' }">AgentConnect</router-link>
-        </div>
-        <div class="navigation">
-          <router-link :to="{ name: 'openidConnect' }">OpenidConnect</router-link>
-        </div>
-      </nav>
-    </header>
-    <section>
-      <h1>Bienvenue sur Agent Connect</h1>
-      <div class="content">Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
-      <router-view></router-view>
-    </section>
-    <footer class="text-right">@ AgentConnect 2019 - Application de démonstration</footer>
+      <Toolbar/>
+
+      <section>
+        <h1>Bienvenue sur Agent Connect</h1>
+        <div
+          class="content"
+        >Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
+        <router-view></router-view>
+      </section>
+
+    <Footer/>
   </div>
 </template>
+
+<script>
+import Toolbar from "@/components/layout/Toolbar";
+import Footer from "@/components/layout/Footer";
+
+export default {
+  name: "App",
+  components: {
+    Toolbar,
+    Footer
+  }
+};
+</script>
 
 <style lang="scss">
 #app {

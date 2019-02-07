@@ -1,7 +1,4 @@
-$blue: #2E4272;
-$lightest-blue: #4F628E;
-$darkest-blue: #7887AB;
-$bg-grey: #ececec;
+@import './color.scss';
 
 .wrapper {
     background-color: $bg-grey;
@@ -10,82 +7,93 @@ $bg-grey: #ececec;
     flex-flow: row wrap;
     flex-direction: column;
     justify-content: space-between;
-    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom fixed;
+    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom 40px fixed;
 
     header {
         nav {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            background-color: $darkest-blue;
 
-            .navigation {
-                padding: 15px;
+            .logo {
+                img {
+                    margin: 5px 25px;
+                    width: 170px;
+                }
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: row;
+
+                div.navigation {
+                    padding: 25px 0;
+                }
+    
+                button.navigation {
+                    margin: 15px 0;
+                    cursor: pointer;
+                    background-color: $red;
+                    border: none;
+                    color: $white;
+                    padding: 10px 25px;
+                    font-size: 15px;
+    
+                    &:hover {
+                        background-color: $darkest-red;
+                    }
+                }
+    
+                .navigation:last-child {
+                    margin-right: 25px;
+                }
             }
         }
     }
 
     section {
         margin: 10px auto;
-        padding: 15px;
+        padding: 3rem 10rem 10rem;
+        background-color: $white;
+        color: $grey;
+        box-shadow: 2px 2px 10px $darkest-blue;
+
+        @media screen and (max-width: 1025px) {
+            margin: 10px 0;
+            padding: 3rem 3rem 10rem;
+        }
 
         h1 {
-            padding: 10px;
+            padding: 1rem;
+            font-size: 2em;
         }
 
         .content {
-            padding: 10px;
+            padding: 1rem;
 
-            table {
-                min-width: 100%;
-                width: 100%;
-                border-collapse: collapse;
-                box-sizing: border-box;
+            .mt-1 {
+                margin-top: 2rem;
+            }
 
-                thead {
-                    th, td {
-                        padding: .75rem;
-                    }
-                }
+            button {
+                cursor: pointer;
+                background-color: $darkest-blue;
+                border: none;
+                color: $white;
+                padding: 10px 25px;
+                font-size: 15px;
 
-                tbody {
-                    tr:first-child {
-                        th, td {
-                            border-top: 3px solid #dee2e6;
-                        }
-                    }
-
-                    th {
-                        width: 20%;
-                    }
-
-                    td {
-                        width: 40%;
-
-                        &.mandatory::after {
-                            content: " *";
-                        }
-                    }
-
-                    th, td {
-                        padding: .75rem;
-                        vertical-align: top;
-                        border-top: 1px solid #dee2e6;
-                    }
-                }
-
-                &.table-dark {
-                    color: #fff;
-                    background-color: #212529;
-
-                    &.table-striped tr:nth-of-type(odd) {
-                        background-color: rgba(255,255,255,.05);
-                    }
+                &:hover {
+                    background-color: $darkest-blue;
                 }
             }
         }
     }
 
     footer {
-        padding: 0 25px 10px;
+        padding: 10px 25px 10px;
+        background-color: $darkest-blue;
+        color: $white;
     }
 }
 

@@ -1,8 +1,8 @@
 <template>
   <div id="openid-connect" class="content">
     <div>Vous pouvez vérifier le niveau de compatibilité d'un Fournisseur d'Identité en cliquant sur le bouton "Test de compatibilité OpenId Connect".</div>
-    <div>
-      <button v-on:click="login">Openid Connect</button>
+    <div class="text-center mt-1">
+      <button v-on:click="login">Se connecter sur Openid Connect</button>
     </div>
   </div>
 </template>
@@ -11,9 +11,7 @@
 export default {
   name: "OpenidConnect",
   methods: {
-    login: function() {
-
-    } 
+    login: function() {}
   }
 };
 </script>
