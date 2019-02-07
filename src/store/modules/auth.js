@@ -12,7 +12,7 @@ import { USER_LOGOUT_AC } from "@/store/actions/user";
 
 import config from "@/../config/configManager";
 import API from "@/utils/api";
-import router from "../../router";
+import router from "@/router/index";
 
 const api = new API({
   configuration: config

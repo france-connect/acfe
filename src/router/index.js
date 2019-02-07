@@ -3,9 +3,6 @@ import Router from "vue-router";
 import Callback from "@/views/Callback";
 import AgentConnect from "@/components/AgentConnect";
 import OpenidConnect from "@/components/OpenidConnect";
-//import CallbackContent from "@/components/callback/content";
-//import CallbackLoading from "@/components/callback/loading";
-//import CallbackError from "@/components/callback/error";
 
 Vue.use(Router);
 
