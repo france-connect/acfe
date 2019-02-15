@@ -9,7 +9,7 @@
         position: relative;
         z-index: 0;
         cursor: pointer;
-        color: $white;
+        color: $blue;
     }
 }
 
@@ -26,7 +26,7 @@
         height: 100%;
         width: 2px;
         content: '';
-        background: $white;
+        background: $blue;
         transition: all 0.3s;
     }
 

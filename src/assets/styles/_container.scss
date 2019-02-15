@@ -7,13 +7,14 @@
     flex-flow: row wrap;
     flex-direction: column;
     justify-content: space-between;
-    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom 40px fixed;
+    background: $bg-grey url('./assets/images/logo_marianne.png') no-repeat right 5% bottom 40px fixed;
 
     header {
         nav {
             display: flex;
             justify-content: space-between;
-            background-color: $darkest-blue;
+            background-color: $bg-grey;
+            border-bottom: 1px solid $white;
 
             .logo {
                 img {
@@ -27,7 +28,7 @@
                 flex-direction: row;
 
                 div.navigation {
-                    padding: 25px 0;
+                    padding: 36px 0;
                 }
     
                 button.navigation {
@@ -75,6 +76,12 @@
                 margin-top: 2rem;
             }
 
+
+            img.link {
+                cursor: pointer;
+                width: 280px;
+            }
+
             button {
                 cursor: pointer;
                 background-color: $darkest-blue;
@@ -85,58 +92,6 @@
 
                 &:hover {
                     background-color: $darkest-blue;
-                }
-            }
-        }
-
-        .content {
-            padding: 10px;
-
-            table {
-                min-width: 100%;
-                width: 100%;
-                border-collapse: collapse;
-                box-sizing: border-box;
-
-                thead {
-                    th, td {
-                        padding: .75rem;
-                    }
-                }
-
-                tbody {
-                    tr:first-child {
-                        th, td {
-                            border-top: 3px solid #dee2e6;
-                        }
-                    }
-
-                    th {
-                        width: 20%;
-                    }
-
-                    td {
-                        width: 40%;
-
-                        &.mandatory::after {
-                            content: " *";
-                        }
-                    }
-
-                    th, td {
-                        padding: .75rem;
-                        vertical-align: top;
-                        border-top: 1px solid #dee2e6;
-                    }
-                }
-
-                &.table-dark {
-                    color: #fff;
-                    background-color: #212529;
-
-                    &.table-striped tr:nth-of-type(odd) {
-                        background-color: rgba(255,255,255,.05);
-                    }
                 }
             }
         }
