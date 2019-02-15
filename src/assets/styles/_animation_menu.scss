@@ -1,0 +1,44 @@
+@import './color.scss';
+
+#toolbar {
+    .animation {
+        text-decoration: none;
+        font-size: 20px;
+        margin: 0px 10px;
+        padding: 10px 10px;
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+        color: $blue;
+    }
+}
+
+.borderYtoX {
+    .animation:before {
+        left: 0px;
+        top: 0px;
+    }
+
+    .animation:before,
+    .animation:after {
+        position: absolute;
+        opacity: 0.5;
+        height: 100%;
+        width: 2px;
+        content: '';
+        background: $blue;
+        transition: all 0.3s;
+    }
+
+    .animation:after {
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .animation:hover:before,
+    .animation:hover:after{
+        opacity: 1;
+        height: 2px;
+        width: 100%;
+    }
+}

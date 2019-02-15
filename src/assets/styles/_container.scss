@@ -1,39 +1,106 @@
-$blue: #2E4272;
-$lightest-blue: #4F628E;
-$darkest-blue: #7887AB;
-$bg-grey: #ececec;
+@import './color.scss';
 
 .wrapper {
     background-color: $bg-grey;
     display: flex;
-    height:100vh;
+    min-height:100vh;
     flex-flow: row wrap;
     flex-direction: column;
     justify-content: space-between;
-    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom fixed;
+    background: $bg-grey url('./assets/images/logo_marianne.png') no-repeat right 5% bottom 40px fixed;
 
     header {
         nav {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            background-color: $bg-grey;
+            border-bottom: 1px solid $white;
 
-            .navigation {
-                padding: 15px;
+            .logo {
+                img {
+                    margin: 5px 25px;
+                    width: 170px;
+                }
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: row;
+
+                div.navigation {
+                    padding: 36px 0;
+                }
+    
+                button.navigation {
+                    margin: 15px 0;
+                    cursor: pointer;
+                    background-color: $red;
+                    border: none;
+                    color: $white;
+                    padding: 10px 25px;
+                    font-size: 15px;
+    
+                    &:hover {
+                        background-color: $darkest-red;
+                    }
+                }
+    
+                .navigation:last-child {
+                    margin-right: 25px;
+                }
             }
         }
     }
 
     section {
         margin: 10px auto;
-        padding: 15px;
+        padding: 3rem 10rem 10rem;
+        background-color: $white;
+        color: $grey;
+        box-shadow: 2px 2px 10px $darkest-blue;
 
-        div {
-            padding: 10px;
+        @media screen and (max-width: 1025px) {
+            margin: 10px 0;
+            padding: 3rem 3rem 10rem;
+        }
+
+        h1 {
+            padding: 1rem;
+            font-size: 2em;
+        }
+
+        .content {
+            padding: 1rem;
+
+            .mt-1 {
+                margin-top: 2rem;
+            }
+
+
+            img.link {
+                cursor: pointer;
+                width: 280px;
+            }
+
+            button {
+                cursor: pointer;
+                background-color: $darkest-blue;
+                border: none;
+                color: $white;
+                padding: 10px 25px;
+                font-size: 15px;
+
+                &:hover {
+                    background-color: $darkest-blue;
+                }
+            }
         }
     }
 
     footer {
-        padding: 0 25px 10px;
+        padding: 10px 25px 10px;
+        background-color: $darkest-blue;
+        color: $white;
     }
 }
 

@@ -1,7 +1,11 @@
 @import './container.scss';
+@import './callback.scss';
+@import './loading.scss';
+@import './animation_menu.scss';
 
 $primary: purple;
 
 body {
-    margin: 0px;
+    margin: 0;
+    padding: 0;
 }
