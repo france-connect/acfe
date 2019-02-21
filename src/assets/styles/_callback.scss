@@ -1,0 +1,13 @@
+@import './color.scss';
+
+#callback {
+    #callback-content {
+        display:flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        .scopeprint {
+            padding: 1rem;
+        }
+    }
+}

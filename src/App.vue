@@ -1,37 +1,28 @@
 <template>
   <div class="wrapper">
-    <header>
-      <nav>
-        <div class="navigation">
-          <router-link :to="{ name: 'agentConnect' }">AgentConnect</router-link>
-        </div>
-        <div class="navigation">
-          <router-link :to="{ name: 'openidConnect' }">OpenidConnect</router-link>
-        </div>
-      </nav>
-    </header>
-    <section>
-      <h1>Bienvenue sur Agent Connect</h1>
-      <div>Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
-      <!--<router-view></router-view>-->
-      <div>Vous pouvez tester la connexion à un Fournisseur d'Identité en cliquant sur le bouton FranceConnect</div>
-      <div>
-        <button v-on:click="login" >AgentConnect</button>
-      </div>
-    </section>
-    <footer class="text-right">Agent Connect - Application de démonstration</footer>
+      <Toolbar/>
+
+      <section>
+        <h1>Bienvenue sur Agent Connect</h1>
+        <div
+          class="content"
+        >Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
+        <router-view></router-view>
+      </section>
+
+    <Footer/>
   </div>
 </template>
 
 <script>
-import { HTTP } from "@/https-constant.js";
+import Toolbar from "@/components/layout/Toolbar";
+import Footer from "@/components/layout/Footer";
 
 export default {
   name: "App",
-  methods: {
-    login: function() {
-
-    } 
+  components: {
+    Toolbar,
+    Footer
   }
 };
 </script>
