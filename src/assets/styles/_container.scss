@@ -4,14 +4,13 @@ $darkest-blue: #7887AB;
 $bg-grey: #ececec;
 
 .wrapper {
+    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom fixed;
     background-color: $bg-grey;
     display: flex;
     height:100vh;
     flex-flow: row wrap;
     flex-direction: column;
     justify-content: space-between;
-    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom fixed;
-
     header {
         nav {
             display: flex;
