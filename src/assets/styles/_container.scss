@@ -1,8 +1,7 @@
 @import './color.scss';
 
 .wrapper {
-    background: $bg-grey url('./assets/logo_marianne.png') no-repeat right 5% bottom fixed;
-    background-color: $bg-grey;
+    background: $bg-grey url('./assets/images/logo_marianne.png') no-repeat right 5% bottom fixed;
     display: flex;
     min-height:100vh;
     flex-flow: row wrap;
