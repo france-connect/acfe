@@ -1,16 +1,17 @@
 <template>
   <div class="wrapper">
-      <Toolbar/>
+    <Toolbar />
 
-      <section>
-        <h1>Bienvenue sur Agent Connect</h1>
-        <div
-          class="content"
-        >Vous êtes sur une application de test. Cette application vous permet de simuler une cinématique de connexion.</div>
-        <router-view></router-view>
-      </section>
+    <section>
+      <h1>Bienvenue sur Agent Connect</h1>
+      <div class="content">
+        Vous êtes sur une application de test. Cette application vous permet de
+        simuler une cinématique de connexion.
+      </div>
+      <router-view></router-view>
+    </section>
 
-    <Footer/>
+    <Footer />
   </div>
 </template>
 

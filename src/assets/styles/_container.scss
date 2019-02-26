@@ -1,7 +1,7 @@
 @import './color.scss';
 
 .wrapper {
-    background: $bg-grey url('./assets/images/logo_marianne.png') no-repeat right 5% bottom fixed;
+    background: $bg-grey url('./assets/images/logo_marianne.png') no-repeat right 5% bottom 40px fixed;
     display: flex;
     min-height:100vh;
     flex-flow: row wrap;
@@ -14,6 +14,11 @@
             background-color: $bg-grey;
             border-bottom: 1px solid $white;
 
+            @media screen and (max-width: 426px) {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .logo {
                 img {
                     margin: 5px 25px;
@@ -24,6 +29,16 @@
             .menu {
                 display: flex;
                 flex-direction: row;
+
+                @media screen and (max-width: 426px) {
+                    flex-direction: column;
+                }
+
+                @media screen and (min-width: 760px) {
+                    .navigation:last-child {
+                        margin-right: 25px;
+                    }
+                }
 
                 div.navigation {
                     padding: 36px 0;
@@ -42,10 +57,6 @@
                         background-color: $darkest-red;
                     }
                 }
-    
-                .navigation:last-child {
-                    margin-right: 25px;
-                }
             }
         }
     }
@@ -56,10 +67,24 @@
         background-color: $white;
         color: $grey;
         box-shadow: 2px 2px 10px $darkest-blue;
+        width: 980px;
 
         @media screen and (max-width: 1025px) {
-            margin: 10px 0;
+            margin: 10px auto;
             padding: 3rem 3rem 10rem;
+            width: 790px;
+        }
+
+        @media screen and (max-width: 769px) {
+            margin: 10px auto;
+            padding: 3rem 3rem 5rem;
+            width: 560px;
+        }
+
+        @media screen and (max-width: 426px) {
+            margin: 10px 0;
+            padding: 0;
+            width: auto;
         }
 
         h1 {

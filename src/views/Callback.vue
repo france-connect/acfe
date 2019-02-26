@@ -1,6 +1,9 @@
 <template>
   <div id="callback" class="content">
-    <component :is="currentCallbackComponent" :errorUserInfo="error"></component>
+    <component
+      :is="currentCallbackComponent"
+      :errorUserInfo="error"
+    ></component>
   </div>
 </template>
 

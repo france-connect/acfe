@@ -9,8 +9,8 @@
         >{{ index }} - {{ key }} : {{ value }}</div>
       </div>
     </div>-->
-      <h2>Votre identité retourné au format JSON</h2>
-      <pre class="prettyprint">{{ userInfo }}</pre>
+    <h2>Votre identité retourné au format JSON</h2>
+    <pre class="prettyprint">{{ userInfo }}</pre>
   </div>
 </template>
 <script>

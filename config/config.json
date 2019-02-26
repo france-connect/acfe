@@ -1,6 +1,6 @@
 {
   "ACBE_URL": "https://acbe.int-cw.dev-franceconnect.fr",
-  "FS_URL": "http://localhost:8080",
+  "FS_URL": "https://agentconnect.int-cw.dev-franceconnect.fr",
 
   "AUTHORIZATION_ACBE_URI": "/api/agentConnect/authorize",
   "TOKEN_ACBE_URI": "/api/agentConnect/callToken",

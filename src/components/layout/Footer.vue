@@ -1,5 +1,7 @@
 <template>
-  <footer id="footer" class="text-right">@ AgentConnect 2019 - Application de démonstration</footer>
+  <footer id="footer" class="text-right">
+    @AgentConnect {{ new Date().getFullYear() }} - Application de démonstration
+  </footer>
 </template>
 
 <script>
