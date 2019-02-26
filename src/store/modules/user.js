@@ -17,7 +17,8 @@ const api = new API({
 
 const state = {
   status: "",
-  userInfo: {}
+  userInfo: {},
+  error: ""
 };
 
 const getters = {
@@ -33,12 +34,12 @@ const actions = {
         .then(response => {
           commit(USER_INFO_SUCCESS_AC, response);
           commit(AUTH_SUCCESS_AC);
-          resolve(response);
+          resolve();
         })
-        .catch(err => {
-          commit(USER_ERROR_AC);
+        .catch(error => {
+          commit(USER_ERROR_AC, error);
           commit(AUTH_ERROR_AC);
-          reject(err);
+          reject(error);
         });
     });
   }
@@ -55,9 +56,11 @@ const mutations = {
   [USER_LOGOUT_AC]: state => {
     state.status = "logout";
     state.userInfo = {};
+    state.error = "";
   },
-  [USER_ERROR_AC]: state => {
+  [USER_ERROR_AC]: (state, error) => {
     state.status = "failed";
+    state.error = error.message;
   }
 };
 

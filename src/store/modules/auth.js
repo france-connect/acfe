@@ -19,7 +19,8 @@ const api = new API({
 });
 
 const state = {
-  status: ""
+  status: "",
+  error: ""
 };
 
 const getters = {
@@ -35,9 +36,8 @@ const actions = {
         commit(AUTH_PENDING_AC);
         window.location.href = res.uri;
       })
-      .catch(err => {
-        commit(AUTH_ERROR_AC, err);
-        new Error(err);
+      .catch(error => {
+        commit(AUTH_ERROR_AC, error);
       });
   },
   [AUTH_LOGOUT_AC]: ({ commit }) => {
@@ -57,11 +57,13 @@ const mutations = {
   [AUTH_SUCCESS_AC]: state => {
     state.status = "success";
   },
-  [AUTH_ERROR_AC]: state => {
+  [AUTH_ERROR_AC]: (state, error) => {
     state.status = "failed";
+    state.error = error.message;
   },
   [AUTH_LOGOUT_AC]: state => {
     state.status = "Not Connected";
+    state.error = "";
   }
 };
 

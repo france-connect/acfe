@@ -33,7 +33,7 @@ export default {
     currentCallbackComponent: function() {
       return this.callbackComponent;
     },
-    ...mapGetters(["authStatus"])
+    ...mapGetters(["authStatus", "userInfos"])
   },
   mounted() {
     if (this.authStatus === "success") {
@@ -41,13 +41,11 @@ export default {
     } else {
       this.$store
         .dispatch(USER_INFO_AC, this.$route.query.code)
-        .then(response => {
-          this.userInfo = response;
+        .then(() => {
           this.callbackComponent = "CallbackContent";
         })
         .catch(error => {
-          console.log("catch error callback", error);
-          this.error = "Sorry Bro il y a un probleme";
+          this.error = error.message;
           this.callbackComponent = "CallbackError";
         });
     }
