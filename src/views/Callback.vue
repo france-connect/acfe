@@ -36,7 +36,7 @@ export default {
         .dispatch(USER_INFO_AC, this.$route.query.code)
         .then(response => {
           localStorage.authenticate = this.authStatus;
-          localStorage.userInfos = response;
+          localStorage.userInfos = JSON.stringify(response);
           this.callbackComponent = "CallbackContent";
         })
         .catch(error => {

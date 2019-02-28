@@ -28,7 +28,7 @@ export default {
   },
   mounted() {
     if (localStorage.authenticate === "success") {
-      this.userInfo = localStorage.userInfos;
+      this.userInfo = JSON.parse(localStorage.userInfos);
     }
   }
 };
