@@ -10,6 +10,7 @@ import { AUTH_SUCCESS_AC, AUTH_ERROR_AC } from "@/store/actions/auth";
 
 import config from "@/../config/configManager";
 import API from "@/utils/api";
+import { getUserInfosSerialized } from "@/utils/parser";
 
 const api = new API({
   configuration: config
@@ -31,8 +32,9 @@ const actions = {
       commit(USER_INFO_AC);
       api
         .getUserInfo_AC(code)
-        .then(response => {
-          commit(USER_INFO_SUCCESS_AC, response);
+        .then(rawUserInfos => getUserInfosSerialized(rawUserInfos))
+        .then(userinfos => {
+          commit(USER_INFO_SUCCESS_AC, userinfos);
           commit(AUTH_SUCCESS_AC);
           resolve();
         })

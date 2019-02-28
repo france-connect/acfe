@@ -1,5 +1,8 @@
 <template>
-  <div>ERROR : {{ errorUserInfo }}</div>
+  <div>
+    <h2>Une erreur est survenue :</h2>
+    <div>{{ errorUserInfo }}</div>
+  </div>
 </template>
 
 <script>

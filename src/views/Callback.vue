@@ -1,9 +1,6 @@
 <template>
   <div id="callback" class="content">
-    <component
-      :is="currentCallbackComponent"
-      :errorUserInfo="error"
-    ></component>
+    <component :is="callbackComponent" :errorUserInfo="error"></component>
   </div>
 </template>
 
@@ -20,7 +17,6 @@ export default {
   data() {
     return {
       callbackComponent: "CallbackLoading",
-      userInfo: null,
       error: null
     };
   },
@@ -30,10 +26,7 @@ export default {
     CallbackError
   },
   computed: {
-    currentCallbackComponent: function() {
-      return this.callbackComponent;
-    },
-    ...mapGetters(["authStatus", "userInfos"])
+    ...mapGetters(["authStatus"])
   },
   mounted() {
     if (this.authStatus === "success") {
@@ -45,7 +38,7 @@ export default {
           this.callbackComponent = "CallbackContent";
         })
         .catch(error => {
-          this.error = error.message;
+          this.error = error.message || error;
           this.callbackComponent = "CallbackError";
         });
     }
