@@ -29,16 +29,18 @@ export default {
     ...mapGetters(["authStatus"])
   },
   mounted() {
-    if (this.authStatus === "success") {
+    if (localStorage.authenticate === "success") {
       this.callbackComponent = "CallbackContent";
     } else {
       this.$store
         .dispatch(USER_INFO_AC, this.$route.query.code)
-        .then(() => {
+        .then(response => {
+          localStorage.authenticate = this.authStatus;
+          localStorage.userInfos = response;
           this.callbackComponent = "CallbackContent";
         })
         .catch(error => {
-          this.error = error.message || error;
+          this.error = error;
           this.callbackComponent = "CallbackError";
         });
     }

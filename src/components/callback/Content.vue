@@ -27,8 +27,8 @@ export default {
     ...mapGetters(["authStatus", "userInfos"])
   },
   mounted() {
-    if (this.authStatus === "success") {
-      this.userInfo = this.userInfos;
+    if (localStorage.authenticate === "success") {
+      this.userInfo = localStorage.userInfos;
     }
   }
 };

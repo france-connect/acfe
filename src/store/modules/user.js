@@ -36,11 +36,11 @@ const actions = {
         .then(userinfos => {
           commit(USER_INFO_SUCCESS_AC, userinfos);
           commit(AUTH_SUCCESS_AC);
-          resolve();
+          resolve(userinfos);
         })
         .catch(error => {
           commit(USER_ERROR_AC, error);
-          commit(AUTH_ERROR_AC);
+          commit(AUTH_ERROR_AC, error);
           reject(error);
         });
     });

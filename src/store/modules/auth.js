@@ -59,7 +59,7 @@ const mutations = {
   },
   [AUTH_ERROR_AC]: (state, error) => {
     state.status = "failed";
-    state.error = error.message || "";
+    state.error = error;
   },
   [AUTH_LOGOUT_AC]: state => {
     state.status = "Not Connected";

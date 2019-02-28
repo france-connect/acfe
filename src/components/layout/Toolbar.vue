@@ -35,12 +35,14 @@ export default {
   name: "Toolbar",
   computed: {
     isAuthenticate() {
-      return this.authStatus;
+      return this.authStatus || localStorage.authenticate;
     },
     ...mapGetters(["authStatus"])
   },
   methods: {
     logout: function() {
+      localStorage.removeItem("authenticate");
+      localStorage.removeItem("userInfos");
       this.$store.dispatch(AUTH_LOGOUT_AC);
     }
   }
