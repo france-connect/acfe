@@ -12,7 +12,6 @@ import { USER_LOGOUT_AC } from "@/store/actions/user";
 
 import config from "@/../config/configManager";
 import API from "@/utils/api";
-import router from "@/router/index";
 
 const api = new API({
   configuration: config
@@ -41,9 +40,11 @@ const actions = {
       });
   },
   [AUTH_LOGOUT_AC]: ({ commit }) => {
-    commit(AUTH_LOGOUT_AC);
-    commit(USER_LOGOUT_AC);
-    router.push({ name: "agentConnect" });
+    api.setLogout_AC().then(res => {
+      commit(AUTH_LOGOUT_AC);
+      commit(USER_LOGOUT_AC);
+      window.location.href = res.uri;
+    });
   }
 };
 

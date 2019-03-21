@@ -6,8 +6,6 @@
 </template>
 
 <script>
-// https://loading.io/css/
-
 export default {
   name: "CallbackError",
   props: ["errorUserInfo"]
